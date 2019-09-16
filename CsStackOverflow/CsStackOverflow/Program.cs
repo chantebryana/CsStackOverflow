@@ -9,15 +9,11 @@ namespace CsStackOverflow
         private DateTime _created;
         private int _votes;
 
-        public Post()
+        public Post (string title, string description)
         {
-        }
-
-        public void NewPost (string titulo, string body)
-        {
-            _title = titulo;
-            _description = body;
-            _created = DateTime.Now;
+            this._title = title;
+            this._description = description;
+            this._created = DateTime.Now;
         }
         public void printPost()
         {
@@ -44,12 +40,11 @@ namespace CsStackOverflow
     {
         static void Main()
         {
-            var post = new Post();
             Console.WriteLine("Enter Post Title: ");
-            var a = Console.ReadLine();
+            var userTitle = Console.ReadLine();
             Console.WriteLine("Enter Post Description: ");
-            var b = Console.ReadLine();
-            post.NewPost(a, b);
+            var userDesc = Console.ReadLine();
+            var post = new Post(userTitle, userDesc);
             post.printPost();
             Console.WriteLine("\n");
             while (true) {
